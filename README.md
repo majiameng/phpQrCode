@@ -6,7 +6,7 @@
 composer require tinymeng/QRcode dev-master -vvv
 ```
 
-> 类库使用的命名空间为`\\tinymeng\\QRcode`
+> 类库使用的命名空间为`\\tinymeng\\code`
 
 ```
 //一维码
