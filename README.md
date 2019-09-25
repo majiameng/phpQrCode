@@ -3,7 +3,7 @@
 ### Install
 
 ```
-composer require tinymeng/QRcode dev-master -vvv
+composer require tinymeng/code dev-master -vvv
 ```
 
 > 类库使用的命名空间为`\\tinymeng\\code`
