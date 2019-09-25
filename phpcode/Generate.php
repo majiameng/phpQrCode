@@ -1,4 +1,6 @@
 <?php
+namespace tinymeng\QRcode;
+
 /**
  * Class Generate.class
  * @author Tinymeng <666@majiameng.com>
