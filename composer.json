@@ -1,9 +1,9 @@
 {
-    "name": "tinymeng/QRcode",
+    "name": "tinymeng/code",
     "description": "php生成条形码或者二维码QRcode",
     "type": "library",
     "keywords": [
-        "tinymeng","QRcode"
+        "tinymeng","QRcode","code"
     ],
     "license": "MIT",
     "authors": [
@@ -18,7 +18,7 @@
     },
     "autoload": {
         "psr-4": {
-            "tinymeng\\QRcode\\": "src"
+            "tinymeng\\code\\": "src"
         }
     }
 }
