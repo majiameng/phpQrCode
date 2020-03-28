@@ -10,6 +10,8 @@ use \tinymeng\tools\Strings;
  * @method static \tinymeng\code\Gateways\Qr qr(array $config=[]) 二维码
  * @package tinymeng\mailer
  */
+define('saveFilePath',dirname(dirname(dirname(dirname(__DIR__)))).DIRECTORY_SEPARATOR.'cache'.DIRECTORY_SEPARATOR.'tinymeng'.DIRECTORY_SEPARATOR.'code'.DIRECTORY_SEPARATOR);
+
 class Generate
 {
     /**

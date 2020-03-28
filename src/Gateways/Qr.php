@@ -12,17 +12,16 @@ use tinymeng\code\Gateways\qrcode\QRencode;
 use tinymeng\code\Gateways\qrcode\QRrawcode;
 use tinymeng\code\Connector\Gateway;
 
-define('saveFilePath',dirname(dirname(dirname(dirname(dirname(__DIR__))))).DIRECTORY_SEPARATOR.'cache'.DIRECTORY_SEPARATOR.'qrcode'.DIRECTORY_SEPARATOR);
 class Qr extends Gateway{
 
     public $version;
     public $width;
     public $data;
-    
+
     /**
      * Function Name: create
      * @param $data
-     * @param bool $filePath 是否保存为文件
+     * @param bool $filePath 图片保存路径,false=>直接输出图片流
      * @param string $matrixPointSize
      * @param string $errorCorrectionLevel in ['L','M','Q','H']
      * @return string
@@ -42,15 +41,24 @@ class Qr extends Gateway{
         }
 
         if($filePath){
-            if($filename === true){
+            if($filePath === true){
                 $filePath = saveFilePath;
+            }else{
+                if(substr($filePath,-1) != DIRECTORY_SEPARATOR){
+                    $filePath .= DIRECTORY_SEPARATOR;
+                }
             }
             /** 文件是否存在 */
             if (!is_dir($filePath)) {
                 mkdir($filePath, 0777, true);
             }
 
-            $filename = $filePath.$data.'.png';
+            if(is_int($data)){
+                $file_name = 'qr'.$data.'.png';
+            }else{
+                $file_name = 'qr'.date('YmdHis').rand(1111,9999).'.png';
+            }
+            $filename = $filePath.$file_name;
             QRcode::png($data, $filename, $errorCorrectionLevel, $matrixPointSize, 2);
             return $filename;
         }else{
